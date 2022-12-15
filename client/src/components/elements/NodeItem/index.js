@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import StatusIcon from 'components/elements/StatusIcon';
+import Metrics from 'components/elements/Metrics';
 
 const Container = styled.div`
   font-weight: 400;
@@ -9,17 +10,29 @@ const Container = styled.div`
   color: #5CB6E9;
   cursor: pointer;
   display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  border-bottom: 1px solid #716969;
+  padding: 0 10px 15px;
   &:nth-child( n + 2 ) {
     margin-top: 20px;
   }
+`
+
+const Block = styled.div`
+  display: flex;
+  align-items: center;
 `
 
 function NodeItem(props) {
   const { node } = props;
   return (
     <Container >
-      <StatusIcon color={node.status_node.color}/>
-      {node.caption}
+      <Block >
+        <StatusIcon color={node.status_node.color}/>
+        {node.caption}
+      </Block>
+      <Metrics />
     </Container>
   )
 }

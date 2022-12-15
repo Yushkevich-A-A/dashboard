@@ -5,6 +5,7 @@ const Container = styled.div`
   width: ${props => props.size || '25'}px;
   height: ${props => props.size || '25'}px;
   border-radius: 50%;
+  margin-right: 10px;
   background-color: ${ props => props.color};
 `
 
