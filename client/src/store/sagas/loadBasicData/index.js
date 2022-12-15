@@ -3,7 +3,6 @@ import { getData } from 'api';
 
 function* loadData() {
   const data = yield call(getData, 'groups');
-  // debugger;
   yield put({ type:'SET_INIT_DATA', payload: { data }});
 }
 

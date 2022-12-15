@@ -1,28 +1,31 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import StatusIcon from 'components/elements/StatusIcon';
 
 const Container = styled.div`
   font-weight: 400;
   font-size: 20px;
   color: #5CB6E9;
   cursor: pointer;
+  display: flex;
   &:nth-child( n + 2 ) {
     margin-top: 20px;
   }
 `
 
-function GroupItem(props) {
-  const { group } = props;
+function NodeItem(props) {
+  const { node } = props;
   return (
     <Container >
-      {group.caption}
+      <StatusIcon color={node.status_node.color}/>
+      {node.caption}
     </Container>
   )
 }
 
-GroupItem.propTypes = {
-  group: PropTypes.object.isRequired,
+NodeItem.propTypes = {
+  node: PropTypes.object.isRequired,
 }
 
-export default GroupItem
+export default NodeItem

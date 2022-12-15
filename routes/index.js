@@ -12,7 +12,8 @@ router.get("/groups", (req, res) => {
     .then(data => {
     // возможно временный код
       data.forEach( item => item.nodes = JSON.parse(item.nodes));
-
+      // const arrData = Array.from(data);
+      // console.log(Array.isArray(data));
       return res.json(data);
     })
     .catch(err => {
