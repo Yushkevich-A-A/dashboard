@@ -1,3 +1,3 @@
 SELECT
   *
-FROM metrics
+FROM metrics 
