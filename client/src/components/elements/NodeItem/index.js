@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import StatusIcon from 'components/elements/StatusIcon';
 import NodeMetrics from 'components/elements/NodeMetrics';
+import { useDispatch } from 'react-redux';
 
 const Container = styled.div`
   font-weight: 400;
@@ -26,8 +27,14 @@ const Block = styled.div`
 
 function NodeItem(props) {
   const { node } = props;
+  const dispatch = useDispatch()
+
+  const handleClick = () => {
+    dispatch({type: 'SET_NODE', payload: { node }});
+  }
+
   return (
-    <Container >
+    <Container onClick={handleClick}>
       <Block >
         <StatusIcon color={node.status_node.color}/>
         {node.caption}

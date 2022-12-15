@@ -18,8 +18,8 @@ SELECT g1.*, json_group_array(
 				),
 				'admin', json_object(
 					'id', user.id,
-					'firstName', user.firstName,
-					'lastName', user.lastName,
+					'firstname', user.firstName,
+					'lastname', user.lastName,
 					'email', user.email
 					),
 				'application', json_array(

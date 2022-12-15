@@ -5,7 +5,7 @@ function* workerSetGroup(action) {
   yield put({ type:'SET_GROUP_FIELD', payload: { group }});
 }
 
-function* workerSetNode() {
+function* workerSetNode(action) {
   const node = action.payload;
   yield put({ type:'SET_NODE_FIELD', payload: { node }});
 }
@@ -16,7 +16,7 @@ function* workerReset() {
 }
 
 
-export default function* setFilter () {
+export default function* watcherFilter () {
   yield all([
       takeLeading('SET_GROUP', workerSetGroup),
       takeLeading('SET_NODE', workerSetNode),

@@ -9,8 +9,8 @@ function serviceFilter( state = filters, action ) {
       const { group } = action.payload;
       return { ...state, node: null, group };
     case 'SET_NODE_FIELD': 
-      const { node, group_node } = action.payload;
-      return { ...state, group: group_node, node };
+      const { node } = action.payload;
+      return { ...state, node };
     case 'RESET_FILTER_FIELDS': 
       return { ...state, group: null, node: null };
     default: 

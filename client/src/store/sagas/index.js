@@ -1,6 +1,6 @@
 import { call, all, spawn } from 'redux-saga/effects';
 import loadBasicData from 'store/sagas/loadBasicData';
-import setFilter from 'store/sagas/setFilter';
+import watcherFilter from 'store/sagas/watcherFilter';
 // import whatchSelectedProject from 'store/sagas/watchSelectedProject';
 
 
@@ -8,7 +8,7 @@ import setFilter from 'store/sagas/setFilter';
 export default function* rootSaga() {
   const sagas = [
     loadBasicData,
-    setFilter,
+    watcherFilter,
     // whatchSelectedProject,
   ]
 
