@@ -13,7 +13,6 @@ const Container = styled.div`
 
 function Interfaces(props) {
   const { node_interface } = props;
-  console.log(node_interface);
   return (
     <InfoBlock title='Interfaces'>
       {
@@ -26,6 +25,8 @@ function Interfaces(props) {
   )
 }
 
-Interfaces.propTypes = {}
+Interfaces.propTypes = {
+  node_interface: PropTypes.object,
+}
 
 export default Interfaces

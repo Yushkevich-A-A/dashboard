@@ -15,7 +15,7 @@ function ThirstSection(props) {
       <Metrics />
       <Interfaces node_interface={node && node.interface}/>
       <Administrators admin={node && node.admin}/>
-      <Applications />
+      <Applications applications={node && node.applications }/>
     </SectionBlock>
   )
 }

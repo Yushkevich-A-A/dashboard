@@ -22,7 +22,7 @@ SELECT g1.*, json_group_array(
 					'lastname', user.lastName,
 					'email', user.email
 					),
-				'application', json_array(
+				'applications', json_array(
 							json_object(
 								'id', app.id,
 								'caption', app.caption
