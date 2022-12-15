@@ -5,9 +5,14 @@ const filters = {
 
 function serviceFilter( state = filters, action ) {
   switch( action.type ) {
-    case "SET_FILTER": 
-      const { data } = action.payload;
-      return { ...data };
+    case 'SET_GROUP_FIELD': 
+      const { group } = action.payload;
+      return { ...state, node: null, group };
+    case 'SET_NODE_FIELD': 
+      const { node, group_node } = action.payload;
+      return { ...state, group: group_node, node };
+    case 'RESET_FILTER_FIELDS': 
+      return { ...state, group: null, node: null };
     default: 
       return { ...state };
   }
