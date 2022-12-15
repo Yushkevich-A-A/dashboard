@@ -16,9 +16,9 @@ function Interfaces(props) {
   return (
     <InfoBlock title='Interfaces'>
       {
-        node_interface && <Container>
-          <StatusBlock status={node_interface.status_interface}/>
+        node_interface&& node_interface.caption && <Container>
           <Text>{node_interface.caption}</Text>
+          <StatusBlock revert={true} status={node_interface.status_interface}/>
         </Container>
       }
     </InfoBlock>

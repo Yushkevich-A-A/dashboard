@@ -6,18 +6,22 @@ import StatusIcon from 'components/elements/StatusIcon';
 const Container = styled.div`
   display: flex;
   align-items: center;
+  flex-direction: ${ props => props.revert && 'row-reverse' }
 `
 
 function StatusBlock(props) {
-  const { status } = props;
+  const { status, revert } = props;
   return (
-    <Container>
+    <Container revert={revert}>
       <StatusIcon color={status.color} size={35} />
       {status.description}
     </Container>
   )
 }
 
-StatusBlock.propTypes = {}
+StatusBlock.propTypes = {
+  status: PropTypes.object,
+  revert: PropTypes.bool,
+}
 
 export default StatusBlock

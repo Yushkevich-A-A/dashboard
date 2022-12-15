@@ -1,8 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
 import InfoBlock from 'components/elements/InfoBlock';
 import { useSelector } from 'react-redux';
 import NodeItem from 'components/elements/NodeItem';
+import CustomScroll from 'react-custom-scroll';
+
+// const Container = styled.div`
+//   height: 90vh;
+//   overflow: scroll;
+// `
 
 function Nodes(props) {
   const groups = useSelector( state => state.serviceProject );
@@ -16,9 +23,13 @@ function Nodes(props) {
 
   return (
       <InfoBlock title='Nodes'>
-        {
-          nodes.map( node => <NodeItem key={node.id} node={node}/> )
-        }
+         {/*<Container>
+          <CustomScroll>  */}
+            {
+              nodes.map( node => <NodeItem key={node.id} node={node}/> )
+            }
+          {/* </CustomScroll>  
+        </Container>*/}
       </InfoBlock>
   )
 }

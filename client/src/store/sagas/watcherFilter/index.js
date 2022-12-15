@@ -6,7 +6,7 @@ function* workerSetGroup(action) {
 }
 
 function* workerSetNode(action) {
-  const node = action.payload;
+  const { node } = action.payload;
   yield put({ type:'SET_NODE_FIELD', payload: { node }});
 }
 

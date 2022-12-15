@@ -7,17 +7,6 @@ function App() {
   const filter = useSelector( state => state.serviceFilter);
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    if (filter.node) {
-      return;
-    }
-    if (!groups[0]) {
-      return;
-    }
-    dispatch({type: 'SET_NODE', payload: { ...groups[0].nodes[1] }});
-  }, [groups])
-
-
   return (
     <div className="App">
       <MainPage />

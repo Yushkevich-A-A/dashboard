@@ -10,7 +10,6 @@ const Container = styled.div`
 
 function Applications(props) {
   const { applications } = props;
-  console.log(applications);
   return (
     <InfoBlock title='Applications'>
       {

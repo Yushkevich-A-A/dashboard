@@ -27,7 +27,7 @@ const Block = styled.div`
 
 function NodeItem(props) {
   const { node } = props;
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
   const handleClick = () => {
     dispatch({type: 'SET_NODE', payload: { node }});
