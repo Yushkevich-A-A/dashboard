@@ -10,6 +10,9 @@ router.get("/groups", (req, res) => {
 
   db(sql)
     .then(data => {
+    // возможно временный код
+      data.forEach( item => item.nodes = JSON.parse(item.nodes));
+
       return res.json(data);
     })
     .catch(err => {
