@@ -1,9 +1,9 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import styled from 'styled-components';
 import MainTitle from 'components/elements/MainTitle';
-import InfoBlock from 'components/InfoBlock';
-import SectionBlock from 'components/SectionBlock';
+import SecondSection from 'components/Sections/SecondSection';
+import ThirstSection from 'components/Sections/ThirstSection';
+import FirstSection from 'components/Sections/FirstSection';
 
 const Container = styled.div``
 const Content = styled.div`
@@ -16,14 +16,12 @@ function MainPage(props) {
     <Container>
         <MainTitle title='Dashboard' />
         <Content>
-          <SectionBlock title='Status Service'/>
-          <SectionBlock title='Nodes'/>
-          <SectionBlock title='Metrics'/>
+          <FirstSection />
+          <SecondSection />
+          <ThirstSection />
         </Content>
     </Container>
   )
 }
-
-MainPage.propTypes = {}
 
 export default MainPage
