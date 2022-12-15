@@ -26,7 +26,7 @@ const Line = styled.div`
   margin: 0 10px;
 `
 
-function Metrics(props) {
+function NodeMetrics(props) {
   const { node_id } = props;
   return (
     <Container>
@@ -45,6 +45,6 @@ function Metrics(props) {
   )
 }
 
-Metrics.propTypes = {}
+NodeMetrics.propTypes = {}
 
-export default Metrics
+export default NodeMetrics

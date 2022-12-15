@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import StatusIcon from 'components/elements/StatusIcon';
-import Metrics from 'components/elements/Metrics';
+import NodeMetrics from 'components/elements/NodeMetrics';
 
 const Container = styled.div`
   font-weight: 400;
@@ -32,7 +32,7 @@ function NodeItem(props) {
         <StatusIcon color={node.status_node.color}/>
         {node.caption}
       </Block>
-      <Metrics />
+      <NodeMetrics />
     </Container>
   )
 }

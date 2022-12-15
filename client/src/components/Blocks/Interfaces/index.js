@@ -2,14 +2,14 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import InfoBlock from 'components/elements/InfoBlock'
 
-function GeneralInformation(props) {
+function Interfaces(props) {
   return (
-    <InfoBlock title='General Information'>
+    <InfoBlock title='Interfaces'>
 
     </InfoBlock>
   )
 }
 
-GeneralInformation.propTypes = {}
+Interfaces.propTypes = {}
 
-export default GeneralInformation
+export default Interfaces

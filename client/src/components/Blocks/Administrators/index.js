@@ -2,14 +2,14 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import InfoBlock from 'components/elements/InfoBlock'
 
-function GeneralInformation(props) {
+function Administrators(props) {
   return (
-    <InfoBlock title='General Information'>
+    <InfoBlock title='Administrators'>
 
     </InfoBlock>
   )
 }
 
-GeneralInformation.propTypes = {}
+Administrators.propTypes = {}
 
-export default GeneralInformation
+export default Administrators
