@@ -10,7 +10,11 @@ const Container = styled.div`
 
 function SectionBlock(props) {
   return (
-    <Container>SectionBlock</Container>
+    <Container>
+      {
+        props.children
+      }
+    </Container>
   )
 }
 

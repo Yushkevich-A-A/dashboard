@@ -8,6 +8,9 @@ const Container = styled.div`
   background-color: #242935;
   border: 1px solid #6798A8;
   border-radius: 5px;
+  &:nth-child( n + 2 ) {
+    margin-top: 25px;
+  }
 `
 const InfoText = styled.div`
   color: grey;
@@ -24,7 +27,7 @@ function InfoBlock(props) {
       <Title title={title}/>
       <Content>
       {
-        props.clildren || <InfoText>нет данных</InfoText>
+        props.children || <InfoText>данные отсутствуют</InfoText>
       }
       </Content>
     </Container>
@@ -32,7 +35,7 @@ function InfoBlock(props) {
 }
 
 InfoBlock.propTypes = {
-  props: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
 }
 
 export default InfoBlock;

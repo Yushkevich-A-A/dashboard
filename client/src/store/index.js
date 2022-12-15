@@ -1,6 +1,7 @@
 
 import { createStore, applyMiddleware, combineReducers, compose } from 'redux';
 import serviceProject from 'store/project';
+import serviceFilter from 'store/filter';
 import createSagaMiddleware from '@redux-saga/core';
 import rootSaga from 'store/sagas';
 
@@ -8,6 +9,7 @@ const sagaMiddleware = createSagaMiddleware();
 
 const reducers = combineReducers({
   serviceProject,
+  serviceFilter,
 });
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

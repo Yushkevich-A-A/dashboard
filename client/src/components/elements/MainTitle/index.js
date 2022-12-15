@@ -16,7 +16,7 @@ function MainTitle(props) {
 }
 
 MainTitle.propTypes = {
-  props: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
 }
 
 export default MainTitle;
