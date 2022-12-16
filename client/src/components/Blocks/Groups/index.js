@@ -3,19 +3,53 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import InfoBlock from 'components/elements/InfoBlock';
 import GroupItem from 'components/elements/GroupItem';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import Text from 'components/elements/Text';
 
 const Container = styled.div`
-  height: 100%;
+  min-height: 200px;
+`
+
+const ResetFilter = styled.div`
+  border-top: 1px solid #716969;
+  margin-top: 10px; 
+  padding-top: 10px; 
+  height: 24px;
+  text-align: right;
+`
+
+const ResetFilterSpan = styled.span`
+  color: #5CB6E9;
+  cursor: pointer;
 `
 
 function Groups(props) {
   const groups = useSelector( state => state.serviceProject );
+  const filter = useSelector( state => state.serviceFilter );
+  const dispatch = useDispatch();
+
+  const handleClick = () => {
+    dispatch({type: 'RESET_FILTERS'});
+  }
+
   return (
       <InfoBlock title='Groups'>
         {
-          groups.map( group => <GroupItem key={group.id} group={group}/> )
+          groups
+            .filter( group => {
+              if (!filter.node) {
+                return true;
+              }
+              return !!group.nodes.find( item => item.id === filter.node.id );
+            })
+            .map( group => <GroupItem key={group.id} group={group}/> )
         }
+        
+          {
+            (filter.group || filter.node) && <ResetFilter>
+              <ResetFilterSpan onClick={handleClick}>сбросить фильтры</ResetFilterSpan>
+            </ResetFilter>
+          }
       </InfoBlock>
   )
 }

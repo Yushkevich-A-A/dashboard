@@ -1,7 +1,7 @@
 import { put, all, takeLeading } from 'redux-saga/effects';
 
 function* workerSetGroup(action) {
-  const group = action.payload;
+  const { group } = action.payload;
   yield put({ type:'SET_GROUP_FIELD', payload: { group }});
 }
 

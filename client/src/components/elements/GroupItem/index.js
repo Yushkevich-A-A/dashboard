@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import { useDispatch } from 'react-redux';
 
 const Container = styled.div`
   font-weight: 400;
@@ -14,8 +15,14 @@ const Container = styled.div`
 
 function GroupItem(props) {
   const { group } = props;
+  const dispatch = useDispatch();
+
+  const handlerClick = () => {
+    dispatch({type: 'SET_GROUP', payload: {group} });
+  }
+
   return (
-    <Container >
+    <Container onClick={handlerClick}>
       {group.caption}
     </Container>
   )

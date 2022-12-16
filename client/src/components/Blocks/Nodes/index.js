@@ -13,13 +13,17 @@ import CustomScroll from 'react-custom-scroll';
 
 function Nodes(props) {
   const groups = useSelector( state => state.serviceProject );
+  const filter = useSelector( state => state.serviceFilter);
   const [ nodes, setNodes ] = useState([]);
 
   useEffect(() => {
+    if (filter.group) {
+      return setNodes([...filter.group.nodes]);
+    }
     const arr = []
     groups.forEach( group => group.nodes.forEach( node => arr.push(node) ) );
     setNodes([...arr]);
-  }, [groups])
+  }, [groups, filter])
 
   return (
       <InfoBlock title='Nodes'>

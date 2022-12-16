@@ -10,7 +10,7 @@ function serviceFilter( state = filters, action ) {
       return { ...state, node: null, group };
     case 'SET_NODE_FIELD': 
       const { node } = action.payload;
-      return { ...state, node };
+      return { ...state, node, group: null };
     case 'RESET_FILTER_FIELDS': 
       return { ...state, group: null, node: null };
     default: 
