@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import InfoBlock from 'components/elements/InfoBlock';
 import { useSelector } from 'react-redux';
 import NodeItem from 'components/elements/NodeItem';
-import CustomScroll from 'react-custom-scroll';
+// import CustomScroll from 'react-custom-scroll';
 
 // const Container = styled.div`
 //   height: 90vh;
@@ -15,9 +15,8 @@ function Nodes(props) {
   const groups = useSelector( state => state.serviceProject );
   const filter = useSelector( state => state.serviceFilter);
   const { metrics } = useSelector( state => state.serviceMetrics);
-  const lastNodeMetrics = metrics[metrics.length - 1];
   const [ nodes, setNodes ] = useState([]);
-  console.log( metrics);
+
   useEffect(() => {
     if (filter.group) {
       return setNodes([...filter.group.nodes]);
@@ -32,7 +31,9 @@ function Nodes(props) {
          {/*<Container>
           <CustomScroll>  */}
             {
-              nodes.map( node => <NodeItem key={node.id} metrics={lastNodeMetrics} node={node}/> )
+              nodes.map( node => <NodeItem key={node.id} metrics={
+                metrics.filter( item => item.node_id === node.id )
+              } node={node}/> )
             }
           {/* </CustomScroll>  
         </Container>*/}

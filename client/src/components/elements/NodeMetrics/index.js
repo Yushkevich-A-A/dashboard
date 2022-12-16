@@ -15,6 +15,7 @@ const Span = styled.div`
 `
 
 const Block = styled.div`
+  width: 20px;
   display: flex;
   flex-direction: column;
   align-items: ${ props => props.type };
@@ -27,7 +28,8 @@ const Line = styled.div`
 `
 
 function NodeMetrics(props) {
-  const { node_id } = props;
+  const { metrics } = props;
+
   return (
     <Container>
       <Block type='flex-end'>
@@ -37,9 +39,9 @@ function NodeMetrics(props) {
       </Block>
       <Line />
       <Block>
-        <Span>{80 || '...'}</Span>
-        <Span>{95 || '...'}</Span>
-        <Span>{60 || '...'}</Span>
+        <Span>{(metrics && metrics.cpu_utilization) || '...'}</Span>
+        <Span>{(metrics && metrics.memory_utilization) || '...'}</Span>
+        <Span>{(metrics && metrics.disk_utilization) || '...'}</Span>
       </Block>
     </Container>
   )
