@@ -14,8 +14,10 @@ import CustomScroll from 'react-custom-scroll';
 function Nodes(props) {
   const groups = useSelector( state => state.serviceProject );
   const filter = useSelector( state => state.serviceFilter);
+  const { metrics } = useSelector( state => state.serviceMetrics);
+  const lastNodeMetrics = metrics[metrics.length - 1];
   const [ nodes, setNodes ] = useState([]);
-
+  console.log( metrics);
   useEffect(() => {
     if (filter.group) {
       return setNodes([...filter.group.nodes]);
@@ -30,7 +32,7 @@ function Nodes(props) {
          {/*<Container>
           <CustomScroll>  */}
             {
-              nodes.map( node => <NodeItem key={node.id} node={node}/> )
+              nodes.map( node => <NodeItem key={node.id} metrics={lastNodeMetrics} node={node}/> )
             }
           {/* </CustomScroll>  
         </Container>*/}

@@ -31,10 +31,10 @@ const Block = styled.div`
 `
 
 function NodeItem(props) {
-  const { node } = props;
+  const { node, metrics } = props;
   const groups = useSelector( state => state.serviceProject );
   const dispatch = useDispatch();
-
+  
   const handleClick = () => {
     const selectedGroup = groups.find( group => {
       const findingNode = group.nodes.find( item => item.id === node.id );
@@ -50,7 +50,7 @@ function NodeItem(props) {
         <StatusIcon color={node.status_node.color}/>
         {node.caption}
       </Block>
-      <NodeMetrics />
+      <NodeMetrics metrics={metrics}/>
     </Container>
   )
 }

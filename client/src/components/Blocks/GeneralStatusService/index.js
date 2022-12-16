@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux'
 import { getBadService } from 'lib';
 import StatusBlock from 'components/elements/StatusBlock';
 
-function GeneralInformation(props) {
+function StatusService(props) {
   const groups = useSelector( state => state.serviceProject );
   const [ status, setStatus ] = useState(null)
   
@@ -21,7 +21,7 @@ function GeneralInformation(props) {
   }, [groups])
 
   return (
-    <InfoBlock title='General Information'>
+    <InfoBlock title='General Status Service'>
       {
         status && <StatusBlock status={status} />
       }
@@ -29,6 +29,6 @@ function GeneralInformation(props) {
   )
 }
 
-GeneralInformation.propTypes = {}
+StatusService.propTypes = {}
 
-export default GeneralInformation
+export default StatusService

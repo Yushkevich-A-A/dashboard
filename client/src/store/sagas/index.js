@@ -1,7 +1,7 @@
 import { call, all, spawn } from 'redux-saga/effects';
 import loadBasicData from 'store/sagas/loadBasicData';
 import watcherFilter from 'store/sagas/watcherFilter';
-// import whatchSelectedProject from 'store/sagas/watchSelectedProject';
+import watcherMetrics from 'store/sagas/watcherMetrics';
 
 
 
@@ -9,7 +9,7 @@ export default function* rootSaga() {
   const sagas = [
     loadBasicData,
     watcherFilter,
-    // whatchSelectedProject,
+    watcherMetrics,
   ]
 
   const retrySagas = yield sagas.map( (saga) => {
