@@ -1,9 +1,4 @@
 .thumb-vertical {
-  position: relative;
-  display: block;
-  width: 100%;
-  height: 150px;
-  transform: translateY(0px);
   cursor: pointer;
   border-radius: inherit;
   background-color: rgba(133, 133, 133, 0.627);

@@ -21,7 +21,7 @@ const ResetFilterSpan = styled.span`
   cursor: pointer;
 `
 
-function Groups(props) {
+function Groups() {
   const groups = useSelector( state => state.serviceProject );
   const filter = useSelector( state => state.serviceFilter );
   const dispatch = useDispatch();
@@ -34,20 +34,14 @@ function Groups(props) {
       <InfoBlock title='Groups'>
         {
           groups
-            .filter( group => {
-              if (!filter.node) {
-                return true;
-              }
-              return !!group.nodes.find( item => item.id === filter.node.id );
-            })
+            .filter( group => !(filter.node && !group.nodes.find( item => item.id === filter.node.id )))
             .map( group => <GroupItem key={group.id} group={group}/> )
         }
-        
+        <ResetFilter>
           {
-            (filter.group || filter.node) && <ResetFilter>
-              <ResetFilterSpan onClick={handleClick}>сбросить фильтры</ResetFilterSpan>
-            </ResetFilter>
+            (filter.group || filter.node) && <ResetFilterSpan onClick={handleClick}>сбросить фильтры</ResetFilterSpan>
           }
+        </ResetFilter>
       </InfoBlock>
   )
 }

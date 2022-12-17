@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import StatusIcon from 'components/elements/StatusIcon';
 import NodeMetrics from 'components/elements/NodeMetrics';
 import { useDispatch, useSelector } from 'react-redux';
@@ -28,11 +28,24 @@ const Container = styled.div`
 const Block = styled.div`
   display: flex;
   align-items: center;
+  border: 2px solid transparent;
+  padding: 10px 10px 10px 5px;
+  min-width: 200px;
+  border-radius: 5px;
+  transition: border 0.2s;
+  background-color: ${
+     props => props.selected &&  css`rgba( 118, 118, 118, 0.2 )`
+  };
+
+  &:hover {
+    border-color: grey;
+  }
 `
 
 function NodeItem(props) {
   const { node, metrics } = props;
   const groups = useSelector( state => state.serviceProject );
+  const { node: selected_node }= useSelector( state => state.serviceFilter );
   const dispatch = useDispatch();
   
 
@@ -47,7 +60,7 @@ function NodeItem(props) {
 
   return (
     <Container onClick={handleClick}>
-      <Block >
+      <Block selected={selected_node && selected_node.id === node.id}>
         <StatusIcon color={node.status_node.color}/>
         {node.caption}
       </Block>

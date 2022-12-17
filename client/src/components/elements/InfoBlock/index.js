@@ -16,6 +16,7 @@ const InfoText = styled.div`
   color: grey;
 `
 const Content = styled.div`
+  min-height: 75px;
   ${ props => !props.withoutPadding && 'padding: 20px;'}
 `
 

@@ -5,9 +5,10 @@ const Container = styled.div`
   width: ${props => props.size || '25'}px;
   height: ${props => props.size || '25'}px;
   border-radius: 50%;
-  margin-right: 5px;
-  margin-left: 5px;
+  margin-right: 10px;
+  margin-left: 10px;
   background-color: ${ props => props.color};
+  box-shadow: 0px 0px 6px #ffffff;
 `
 
 function StatusIcon(props) {
