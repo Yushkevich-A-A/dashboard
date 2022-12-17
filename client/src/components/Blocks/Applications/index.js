@@ -14,7 +14,7 @@ function Applications(props) {
     <InfoBlock title='Applications'>
       {
         applications && applications.map(
-          item => <Text key={item.id}>{item.caption} ,</Text>
+          (item, index) => <Text key={item.id}>{item.caption} { (index !== applications.length - 1 )&& ',' }</Text>
         )
       }
     </InfoBlock>

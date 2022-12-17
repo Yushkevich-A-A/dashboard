@@ -71,7 +71,7 @@ function NodeItem(props) {
 
 NodeItem.propTypes = {
   node: PropTypes.object.isRequired,
-  metrics: PropTypes.object,
+  metrics: PropTypes.array,
 }
 
 export default NodeItem

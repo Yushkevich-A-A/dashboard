@@ -1,8 +1,27 @@
-import React, { useEffect, useState } from 'react'
-import InfoBlock from 'components/elements/InfoBlock'
+import React, { useEffect, useState } from 'react';
+import InfoBlock from 'components/elements/InfoBlock';
+import styled from 'styled-components';
 import 'chart.js/auto';
 import { Chart } from 'react-chartjs-2';
 import { useSelector } from 'react-redux';
+import { addMinutes, format, parse } from 'date-fns';
+
+const Container = styled.div`
+  position: relative;
+  &:before {
+    content: '';
+    display: block;
+    padding-top: 48%;
+  }
+`
+
+const WrapperContainer = styled.div`
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+`
 
 function Metrics() {
   const { metrics } = useSelector( state => state.serviceMetrics );
@@ -17,8 +36,10 @@ function Metrics() {
     const arrayMetrics = metrics.filter( item => item.node_id === node.id)
 
     setNodeMetrics( arrayMetrics );
-    if ( arrayMetrics.length > 5 ) {
-      setLabels(nodeMetrics.map( metric => metric.datetime.split(' ')[1] ).slice(-5))
+    if ( arrayMetrics.length > 4 ) {
+      setLabels(
+        [...labels, format(addMinutes(parse( labels[labels.length - 1],  'mm:ss', new Date()), 1), 'mm:ss')].slice(-5)
+      )
     }
   }, [node, metrics]);
 
@@ -31,7 +52,7 @@ function Metrics() {
       }
     },
     scales: {
-      y: { // defining min and max so hiding the dataset does not change scale range
+      y: {
         min: 0,
         max: 100
       }
@@ -43,17 +64,17 @@ function Metrics() {
     datasets: [
       {
         label: 'CPU',
-        data: nodeMetrics.map( metric => metric.cpu_utilization ).slice(-5),
-        borderColor: '#f90000',
+        data: nodeMetrics.map( metric => metric.cpu_utilization ).slice(-4),
+        borderColor: '#ff7700',
       },
       {
         label: 'memory',
-        data: nodeMetrics.map( metric => metric.memory_utilization ).slice(-5),
-        borderColor: '#0006f9',
+        data: nodeMetrics.map( metric => metric.memory_utilization ).slice(-4),
+        borderColor: '#01a9ff',
       },
       {
         label: 'disk',
-        data: nodeMetrics.map( metric => metric.disk_utilization ).slice(-5),
+        data: nodeMetrics.map( metric => metric.disk_utilization ).slice(-4),
         borderColor: '#3cf900',
       },
     ],
@@ -79,7 +100,11 @@ function Metrics() {
   };
   return (
     <InfoBlock title='Metrics'>
-      <Chart type='line' options={options} data={data} />
+      <Container>
+        <WrapperContainer>
+          <Chart type='line' options={options} data={data} />
+        </WrapperContainer>
+      </Container>
     </InfoBlock>
   )
 }

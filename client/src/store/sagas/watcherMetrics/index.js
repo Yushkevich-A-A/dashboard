@@ -6,14 +6,22 @@ function* workerSetMetrics() {
   const state = yield select( state => state.serviceMetrics);
 
   const lastMetrics = state.metrics[state.metrics.length - 1];
-  const lastIndexMetrix = lastMetrics ? lastMetrics.id : 0;
-  const timeRequest = state.datetime 
+  // этоти переменные объявлены изменяемыми, чтобы можно было зациклить запросы метрик
+  let lastIndexMetrix = lastMetrics ? lastMetrics.id : 0;
+  lastIndexMetrix = ( lastIndexMetrix === 176 ) ? 0 : lastIndexMetrix;
+
+  let timeRequest = state.datetime 
                             ? format(addMinutes(state.datetime, 1), 'dd-MM-yyyy mm:ss') 
                             : '01-03-2020 00:00';
+  timeRequest = (timeRequest === '01-03-2020 11:00') ? '01-03-2020 00:00' : timeRequest;
+
   const metrics = yield call(getData, 'metrics?', { 
     dateTimeRequest: timeRequest, 
     lastRowId: lastIndexMetrix,
   });
+  if (metrics.length === 0 ) {
+    return ;
+  }
   yield put({ type:'SET_METRICS', payload: { metrics }});
 }
 
