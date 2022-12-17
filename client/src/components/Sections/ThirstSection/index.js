@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import SectionBlock from 'components/elements/SectionBlock';
 import Metrics from 'components/Blocks/Metrics';
 import Interfaces from 'components/Blocks/Interfaces';
@@ -7,7 +6,7 @@ import Administrators from 'components/Blocks/Administrators';
 import Applications from 'components/Blocks/Applications';
 import { useSelector } from 'react-redux';
 
-function ThirstSection(props) {
+function ThirstSection() {
   const { node } = useSelector( state => state.serviceFilter );
 
   return (
@@ -19,7 +18,5 @@ function ThirstSection(props) {
     </SectionBlock>
   )
 }
-
-ThirstSection.propTypes = {}
 
 export default ThirstSection;

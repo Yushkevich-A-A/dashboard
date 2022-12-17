@@ -1,10 +1,8 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import InfoBlock from 'components/elements/InfoBlock';
 import GroupItem from 'components/elements/GroupItem';
 import { useDispatch, useSelector } from 'react-redux';
-import Text from 'components/elements/Text';
 
 const Container = styled.div`
   min-height: 200px;
@@ -53,7 +51,5 @@ function Groups(props) {
       </InfoBlock>
   )
 }
-
-Groups.propTypes = {}
 
 export default Groups;

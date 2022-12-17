@@ -1,6 +1,6 @@
 import MainPage from "pages/MainPage";
 import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 
 function App() { 
   const dispatch = useDispatch();
@@ -8,8 +8,9 @@ function App() {
     dispatch({type: 'REQUEST_METRICS'});
     const timer = setInterval( () => {
       dispatch({type: 'REQUEST_METRICS'})
-    }, 60 * 1000 );
-    return () => clearInterval(timer)
+    }, 6000 );
+    return () => clearInterval(timer);
+    // eslint-disable-next-line
   },[])
 
   return (

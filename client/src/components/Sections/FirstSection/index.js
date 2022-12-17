@@ -1,11 +1,10 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import SectionBlock from 'components/elements/SectionBlock';
 import StatusService from 'components/Blocks/StatusService';
 import GeneralInformation from 'components/Blocks/GeneralStatusService';
 import Groups from 'components/Blocks/Groups';
 
-function FirstSection(props) {
+function FirstSection() {
   return (
     <SectionBlock>
       <StatusService />
@@ -14,7 +13,5 @@ function FirstSection(props) {
     </SectionBlock>
   )
 }
-
-FirstSection.propTypes = {}
 
 export default FirstSection;

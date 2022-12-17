@@ -11,7 +11,7 @@ const Content = styled.div`
   justify-content: center;
 `
 
-function MainPage(props) {
+function MainPage() {
   return (
     <Container>
         <MainTitle title='Dashboard' />

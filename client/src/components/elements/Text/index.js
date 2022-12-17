@@ -1,6 +1,5 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import styled from 'styled-components'
+import React from 'react';
+import styled from 'styled-components';
 
 const Container = styled.div`
   font-weight: 400;
@@ -17,6 +16,4 @@ function Text(props) {
   )
 }
 
-Text.propTypes = {}
-
-export default Text
+export default Text;

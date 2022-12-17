@@ -25,7 +25,7 @@ function Administrators(props) {
 }
 
 Administrators.propTypes = {
-  admin: PropTypes.object
+  admin: PropTypes.object,
 }
 
 export default Administrators

@@ -1,17 +1,19 @@
 import React, { useEffect, useState } from 'react';
-import PropTypes from 'prop-types';
+import './style.css';
 import styled from 'styled-components';
 import InfoBlock from 'components/elements/InfoBlock';
 import { useSelector } from 'react-redux';
 import NodeItem from 'components/elements/NodeItem';
-// import CustomScroll from 'react-custom-scroll';
+import { Scrollbars } from 'react-custom-scrollbars';
 
-// const Container = styled.div`
-//   height: 90vh;
-//   overflow: scroll;
-// `
+const Container = styled.div`
+  height: calc( 100vh - 150px );
+`
+const WrapperNodeContainer = styled.div`
+  padding: 20px;
+`
 
-function Nodes(props) {
+function Nodes() {
   const groups = useSelector( state => state.serviceProject );
   const filter = useSelector( state => state.serviceFilter);
   const { metrics } = useSelector( state => state.serviceMetrics);
@@ -27,20 +29,23 @@ function Nodes(props) {
   }, [groups, filter])
 
   return (
-      <InfoBlock title='Nodes'>
-         {/*<Container>
-          <CustomScroll>  */}
+      <InfoBlock title='Nodes' withoutPadding={true}>
+        <Container>
+          <Scrollbars 
+          style={{ height: '100%' }}
+          renderThumbVertical={props => <div {...props} className="thumb-vertical"/>}
+          > 
+            <WrapperNodeContainer>
             {
               nodes.map( node => <NodeItem key={node.id} metrics={
                 metrics.filter( item => item.node_id === node.id )
               } node={node}/> )
             }
-          {/* </CustomScroll>  
-        </Container>*/}
+            </WrapperNodeContainer>
+          </Scrollbars>
+        </Container>
       </InfoBlock>
   )
 }
-
-Nodes.propTypes = {}
 
 export default Nodes;

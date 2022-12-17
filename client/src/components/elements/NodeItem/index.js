@@ -58,6 +58,7 @@ function NodeItem(props) {
 
 NodeItem.propTypes = {
   node: PropTypes.object.isRequired,
+  metrics: PropTypes.object,
 }
 
 export default NodeItem

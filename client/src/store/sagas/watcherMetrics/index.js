@@ -1,6 +1,6 @@
 import { getData } from 'api';
 import { addMinutes, format } from 'date-fns';
-import { put, all, takeLeading, fork, call, select } from 'redux-saga/effects';
+import { put, all, takeLeading, call, select } from 'redux-saga/effects';
 
 function* workerSetMetrics() {
   const state = yield select( state => state.serviceMetrics);

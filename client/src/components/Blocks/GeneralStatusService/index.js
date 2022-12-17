@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from 'react'
-import PropTypes from 'prop-types'
 import InfoBlock from 'components/elements/InfoBlock'
 import { useSelector } from 'react-redux'
 import { getBadService } from 'lib';
 import StatusBlock from 'components/elements/StatusBlock';
 
-function StatusService(props) {
+function StatusService() {
   const groups = useSelector( state => state.serviceProject );
   const [ status, setStatus ] = useState(null)
   
@@ -28,7 +27,5 @@ function StatusService(props) {
     </InfoBlock>
   )
 }
-
-StatusService.propTypes = {}
 
 export default StatusService

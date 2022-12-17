@@ -47,6 +47,8 @@ function NodeMetrics(props) {
   )
 }
 
-NodeMetrics.propTypes = {}
+NodeMetrics.propTypes = {
+  metrics: PropTypes.object,
+}
 
 export default NodeMetrics

@@ -16,16 +16,16 @@ const InfoText = styled.div`
   color: grey;
 `
 const Content = styled.div`
-  padding: 20px;
+  ${ props => !props.withoutPadding && 'padding: 20px;'}
 `
 
 
 function InfoBlock(props) {
-  const { title } = props;
+  const { title, withoutPadding } = props;
   return (
     <Container>
       <Title title={title}/>
-      <Content>
+      <Content withoutPadding={withoutPadding}>
       {
         props.children || <InfoText>данные отсутствуют</InfoText>
       }
@@ -36,6 +36,7 @@ function InfoBlock(props) {
 
 InfoBlock.propTypes = {
   title: PropTypes.string.isRequired,
+  withoutPadding: PropTypes.bool,
 }
 
 export default InfoBlock;
