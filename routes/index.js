@@ -10,8 +10,9 @@ router.get("/groups", (req, res) => {
 
   db(sql)
     .then(data => {
-    // возможно временный код
+    // приведение кода к единой нотации
       data.forEach( item => item.nodes = JSON.parse(item.nodes));
+
       return res.json(data);
     })
     .catch(err => {
@@ -23,7 +24,8 @@ router.get("/metrics", (req, res) => {
   let sql = fs
     .readFileSync(path.resolve(process.env.BASEDIR, "sql/metrics.sql"))
     .toString();
-
+    
+  // подстановка запрошенных переменных с клиента
   sql = sql.replace("dateTimeRequest", req.query.dateTimeRequest).replace("lastRowId", req.query.lastRowId);
 
   db(sql)
