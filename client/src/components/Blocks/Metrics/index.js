@@ -41,6 +41,7 @@ function Metrics() {
         [...labels, format(addMinutes(parse( labels[labels.length - 1],  'mm:ss', new Date()), 1), 'mm:ss')].slice(-5)
       )
     }
+   // eslint-disable-next-line
   }, [node, metrics]);
 
   const options = {

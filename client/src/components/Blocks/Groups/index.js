@@ -4,10 +4,6 @@ import InfoBlock from 'components/elements/InfoBlock';
 import GroupItem from 'components/elements/GroupItem';
 import { useDispatch, useSelector } from 'react-redux';
 
-const Container = styled.div`
-  min-height: 200px;
-`
-
 const ResetFilter = styled.div`
   border-top: 1px solid #716969;
   margin-top: 10px; 

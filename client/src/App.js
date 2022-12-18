@@ -9,7 +9,7 @@ function App() {
     const timer = setInterval( () => {
       dispatch({type: 'REQUEST_METRICS'})
     }, 3000 );
-    return () => clearInterval(timer);
+    return () => clearInterval(timer)
     // eslint-disable-next-line
   },[])
 
