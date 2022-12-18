@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import InfoBlock from 'components/elements/InfoBlock';
 import Text from 'components/elements/Text';
+import InfoText from 'components/elements/InfoText';
 
 const Container = styled.div`
   display: flex;
@@ -19,6 +20,9 @@ function Administrators(props) {
           <Text>{ `${admin.firstname} ${admin.lastname}`}</Text>
           <Text>{ admin.email}</Text>
         </Container>
+      }
+      {
+        !admin && <InfoText text='узел не выбран' />
       }
     </InfoBlock>
   )
