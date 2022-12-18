@@ -6,6 +6,7 @@ import StatusIcon from 'components/elements/StatusIcon';
 const Container = styled.div`
   display: flex;
   align-items: center;
+  color: #bafeca;
   flex-direction: ${ props => props.revert && 'row-reverse' }
 `
 
